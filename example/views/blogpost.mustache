@@ -1,0 +1,17 @@
+{{>top}}
+      <div class="p-3 flex-grow-1">
+        <article>
+<h1>{{heading}}</h1>
+<p>
+{{#posted}}
+<strong>Posted:</strong> {{posted}}<br>
+{{/posted}}
+{{#tags}}
+<strong>Tags:</strong> {{tags}}
+{{/tags}}
+</p>
+
+{{{content}}}
+        </article>
+      </div>
+{{>bottom}}

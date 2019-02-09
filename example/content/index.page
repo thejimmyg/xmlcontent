@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<home>
+  <heading>XML Content</heading>
+  <content>
+    <paragraph>
+      <p>This is some content</p>
+    </paragraph>
+  </content>
+  <tweets>
+    <tweet>
+      <posted>2017-02-08T16:00:00.000Z</posted>
+      <content>
+        <paragraph>
+          <p><a href="https://freifunk.net/en/what-is-it-about/">Friefunk</a> and <a href="https://en.wikipedia.org/wiki/B.A.T.M.A.N.">B.A.T.M.A.N</a></p>
+        </paragraph>
+      </content>
+    </tweet>
+  </tweets>
+</home>

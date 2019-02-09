@@ -1,0 +1,35 @@
+{
+  "name": "xmlcontent-example",
+  "version": "0.1.0",
+  "description": "XML Content Example",
+  "scripts": {
+    "docker:build": "echo 'Docker cannnot copy files from a parent directory so we need to put the current dev version of xmlcontent in this directory and change package.json'; mkdir -p xmlcontent ; rsync --delete --exclude='example' --exclude='*.DS_Store' --exclude='.git' --exclude='node_modules' -aHxv ../ xmlcontent/ ; cat package.json | sed -e 's|file:..|file:xmlcontent|g' > package.json.docker ; docker build . -t thejimmyg/xmlcontent:0.1.0",
+    "docker:push": "docker push thejimmyg/xmlcontent:0.1.0",
+    "docker:tag:test": "docker image tag thejimmyg/xmlcontent:0.1.0 thejimmyg/xmlcontent:test",
+    "docker:push:test": "docker push thejimmyg/xmlcontent:test",
+    "docker:run": "docker run -e ROOT_DIR=/app/content -e DEBUG='*' -e PORT=80 --init -p 80:80 -v \"`pwd`/views:/app/views\" -v \"`pwd`/public:/app/public\" -v \"`pwd`/content:/app/content\" thejimmyg/xmlcontent:0.1.0",
+    "fix": "standard --fix",
+    "start": "node server.js"
+  },
+  "author": "James Gardner",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:thejimmyg/xmlcontent.git"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "bootstrap-flexbox-overlay": "^0.1.3",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.4",
+    "express-markdown-pages": "0.2.0",
+    "express-mustache-jwt-signin": "^0.5.3",
+    "express-mustache-overlays": "^0.5.2",
+    "express-public-files-overlays": "^0.1.2",
+    "express-render-error": "^0.1.3",
+    "xmlcontent": "file:.."
+  },
+  "devDependencies": {
+    "standard": "^12.0.1"
+  }
+}

@@ -1,0 +1,19 @@
+{{>top}}
+      <div class="p-3 flex-grow-1">
+        <article>
+<h1>{{heading}}</h1>
+{{{content}}}
+
+
+
+{{#tweets.length}}
+<h2>Recent News</h2>
+<table>
+{{/tweets.length}}
+{{#tweets}}
+   <tr><td><p><strong>{{posted}}</strong>&nbsp;&nbsp;</p></td><td>{{{content}}}</td></tr>
+{{/tweets}}
+</table>
+        </article>
+      </div>
+{{>bottom}}
